@@ -25,27 +25,64 @@ function findAllDividers(num) {
 	return result;
 }
 
-function cornerBoy() {
-	const payment = +prompt('How much you agree to pay for?');
-	if (payment > 0 && payment < 200) {
-		alert('There is no discount for greedy persons, dude!');
-	} else if(payment >= 200 && payment <= 300) {
-		alert('Can we propose 3% discount for you?');
-	} else if(payment >= 300 && payment <= 500) {
-		alert('Can we propose 5% discount for you?');
-	} else if(payment > 500) {
-		alert('Wow! 7% discount is only for you, fellow!');
+function promptArithmetic() {
+	const frstNum = +prompt('Enter first number, please:');
+	const scndNum = +prompt('Enter second number, please:');
+	const oper = prompt('Type the operation, please:\n + addition \n - substraction \n * multiplication \n \/ division');
+	if (isFinite(frstNum) && isFinite(scndNum)) {
+		if (oper === "+") {
+			alert (`Result is: ${frstNum + scndNum}`);
+		} else if (oper === "-") {
+			alert (`Result is: ${frstNum - scndNum}`);
+		} else if (oper === "*") {
+			alert (`Result is: ${frstNum * scndNum}`);
+		} else if (oper === "/") {
+			alert (`Result is: ${frstNum / scndNum}`);
+		} else {
+			alert(`I can\'t understand this operation: ${oper} :(`)
+		}
 	} else {
-		alert('Hey! You want to say that I owes money to you?!');
+		alert('Both values you typed has to be numbers!')
+	};
+};
+
+function digiShifter() {
+	const number = prompt("Type the number, please:");
+	const shift = prompt("Type amount of digits to shift:");
+	let outRes;
+	if(isFinite(parseInt(shift)) && (parseInt(shift) < number.length)) {
+		outRes = number.slice(shift) + number.slice(0, shift);
+		alert(`Your result is: ${outRes}`);
+	} else {
+		alert('Warning! Inappropriate shift!');
 	}
+};
+
+function weekdayLooper() {
+	let conTinue = true;
+	let i = 0;
+	const week = ['Sunday',
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday'
+				]
+	do {
+		conTinue = confirm(`Day ${week[i]}. Do you want to see the next day?`);
+		i++;
+		if (i > 6) i = 0;
+	} while (conTinue);
 }
 
-function fitterRoundSquare() {
-	const circLength = +prompt('Give me a circle length, please');
-	const squarePerimeter = +prompt('Give me a square perimeter, please');
-	(circLength / Math.PI <= squarePerimeter/4) 
-		? alert('The circle fits into this square') 
-		: alert('Circle doesn\'t fit inside such square');
+function multiPlicator(oText) {
+	for (let i = 2; i <= 9; i++) {
+		for (let j = 1; j <= 10; j++) {
+			oText.innerHTML += `${i} * ${j} = ${i * j}<br>`;
+		}
+		oText.innerHTML += "-------------------<br>"
+	}
 }
 
 function getNextDay(presentDay) {
@@ -57,24 +94,6 @@ function getNextDay(presentDay) {
 		year:  'numeric',
 	});
 	alert(`The next day will be: ${oDate}`);
-}
-
-function convertCurrency(amount, currency) {
-	const curCourse = [[0.84, "EUR"], [27.72, "UAH"], [1.7, "AZN"]];
-	const cache = (amount * curCourse[currency][0]).toFixed(2);
-	alert(`Take your cache: ${cache} ${curCourse[currency][1]}, please :\)`);
-	console.log(amount);
-	console.log(currency);
-}
-
-function checkQuiz(arrAnswers) {
-	let result = 0;
-	for(let i = 0; i <= 2; i++) {
-		if (arrAnswers[i]) {
-			result += 2;
-		};
-	};
-	alert(`Your score is ${result} points!`);
 }
 
 function processForm(oForm) {
@@ -132,21 +151,22 @@ function processForm(oForm) {
 			}
 			alert(`Results are: \n positives: ${positives} \n negatives: ${negatives} \n evens: ${evens} \n odds: ${odds}`);
 			break;
-		case "convertTheCurrency":
-			convertCurrency(oForm.elements.usdAmount.value, +oForm.elements.currency.value);
+		case "loopTheCalculator":
+			let oneMore = true;
+			do {
+				promptArithmetic();
+				oneMore = confirm('Wanna try one more time?')
+			} while (oneMore);
 			break;
-		case "checkTheDiscount":
-			cornerBoy();
+		case "shiftTheDigits":
+			digiShifter();
 			break;
-		case "checkCircleFitting":
-			fitterRoundSquare();
+		case "loopTheWeek":
+			weekdayLooper();
 			break;
-		case "checkUserQuiz":
-			checkQuiz([
-				oForm.elements.task1.value,
-				oForm.elements.task2.value,
-				oForm.elements.task3.value
-			]);
+		case "multiplyingTable":
+			let text = document.getElementById('mul-table');
+			multiPlicator(text);
 			break;
 		case "checkNextDate":
 			getNextDay(oForm.elements.calendar.value);

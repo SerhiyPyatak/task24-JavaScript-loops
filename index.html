@@ -84,123 +84,82 @@
         <legend>Задание №6</legend>
         <input
           type="radio"
-          id="currency-converter"
+          id="loop-calc"
           name="task"
-          value="convertTheCurrency"
+          value="loopTheCalculator"
         />
-        <label for="currency-converter">
+        <label for="loop-calc">
           <p>
-            Написать конвертор валют. Пользователь вводит количество USD,
-            выбирает, в какую валюту хочет перевести EUR, UAN или AZN, и
-            получает в ответ соответствующую сумму.
+            Зациклить калькулятор. Запросить у пользователя 2 числа и знак,
+            решить пример, вывести результат и спросить, хочет ли он решить еще
+            один пример. И так до тех пор, пока пользователь не откажется.
           </p>
         </label>
-        <fieldset id="currency-exchange">
-          <label for="usd-amount"> Put USD amount: </label>
-          <input type="number" id="usd-amount" name="usdAmount" />
-          <div>
-            <p>Select currency to exchange please:</p>
-            <input type="radio" id="EUR" value="0" name="currency" />
-            <label for="EUR">EUR</label>
-            <input type="radio" id="UAH" value="1" name="currency" />
-            <label for="UAH">UAH</label>
-            <input type="radio" id="AZN" value="2" name="currency" />
-            <label for="AZN">AZN</label>
-          </div>
-        </fieldset>
       </fieldset>
       <fieldset class="taskform__taskunit" id="task7">
         <legend>Задание №7</legend>
         <input
           type="radio"
-          id="corner-boy"
+          id="shift-digits"
           name="task"
-          value="checkTheDiscount"
+          value="shiftTheDigits"
         />
-        <label for="corner-boy">
+        <label for="shift-digits">
           <p>
-            Запросить у пользователя сумму покупки и вывести сумму к оплате со
-            скидкой: от 200 до 300 – скидка будет 3%, от 300 до 500 – 5%, от 500
-            и выше – 7%.
+            Запросить у пользователя число и на сколько цифр его сдвинуть.
+            Сдвинуть цифры числа и вывести результат (если число 123456 сдвинуть
+            на 2 цифры, то получится 345612).
           </p>
         </label>
       </fieldset>
       <fieldset class="taskform__taskunit" id="task8">
         <legend>Задание №8</legend>
-        <input
-          type="radio"
-          id="round-square-fitter"
-          name="task"
-          value="checkCircleFitting"
-        />
-        <label for="round-square-fitter">
+        <input type="radio" id="loop-week" name="task" value="loopTheWeek" />
+        <label for="loop-week">
           <p>
-            Запросить у пользователя длину окружности и периметр квадрата.
-            Определить, может ли такая окружность поместиться в указанный
-            квадрат.
+            Зациклить вывод дней недели таким образом: «День недели. Хотите
+            увидеть следующий день?» и так до тех пор, пока пользователь
+            нажимает OK.
           </p>
         </label>
       </fieldset>
       <fieldset class="taskform__taskunit" id="task9">
         <legend>Задание №9</legend>
-        <input type="radio" id="user-quiz" name="task" value="checkUserQuiz" />
-        <label for="user-quiz">
+        <input
+          type="radio"
+          id="multiplying-table"
+          name="task"
+          value="multiplyingTable"
+        />
+        <label for="multiplying-table">
           <p>
-            Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта
-            ответа. За каждый правильный ответ начисляется 2 балла. После
-            вопросов выведите пользователю количество набранных баллов.
+            Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число
+            необходимо умножить на числа от 1 до 10. (Обновите страницу чтоб
+            убрать таблицу)
           </p>
+          <p id="mul-table"></p>
         </label>
-        <div class="quiz">
-          <fieldset class="quiz-card">
-            <legend>Вопрос №1:</legend>
-            <p>
-              У олиной мамы пятеро детей: Оксана, Катя, Марина и Коля. Как зовут
-              последнего ребёнка?
-            </p>
-            <input type="radio" id="task1-1" name="task1" value="" />
-            <label for="task1-1">Юля</label>
-            <input type="radio" id="task1-2" name="task1" value="" />
-            <label for="task1-2">Юра</label>
-            <input type="radio" id="task1-3" name="task1" value="true" />
-            <label for="task1-3">Оля</label>
-          </fieldset>
-          <fieldset class="quiz-card">
-            <legend>Вопрос №2:</legend>
-            <p>
-              В гостиннице пять этажей: чем выше этаж, тем больше людей
-              проживает на нём. На какой этаж лифт ездит чаще всего?
-            </p>
-            <input type="radio" id="task2-1" name="task2" value="" />
-            <label for="task2-1">На 5-й</label>
-            <input type="radio" id="task2-2" name="task2" value="true" />
-            <label for="task2-2">На 1-й</label>
-            <input type="radio" id="task2-3" name="task2" value="" />
-            <label for="task2-3">На 2-й</label>
-          </fieldset>
-          <fieldset class="quiz-card">
-            <legend>Вопрос №3:</legend>
-            <p>Сколько месяцев в году имеет 28 дней?</p>
-            <input type="radio" id="task3-1" name="task3" value="" />
-            <label for="task3-1">Один</label>
-            <input type="radio" id="task3-2" name="task3" value="" />
-            <label for="task3-2">Два</label>
-            <input type="radio" id="task3-3" name="task3" value="true" />
-            <label for="task3-3">Двенадцать</label>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset class="taskform__taskunit" id="task10">
         <legend>Задание №10</legend>
-        <input type="radio" id="next-date" name="task" value="checkNextDate" />
-        <label for="next-date">
+        <input
+          type="radio"
+          id="guess-number"
+          name="task"
+          value="guessTheNumber"
+        />
+        <label for="guess-number">
           <p>
-            Запросить дату (день, месяц, год) и вывести следующую за ней дату.
-            Учтите возможность перехода на следующий месяц, год, а также
-            високосный год.
+            Игра «Угадай число». Предложить пользователю загадать число от 0 до
+            100 и отгадать его следующим способом: каждую итерацию цикла делите
+            диапазон чисел пополам, записываете результат в N и спрашиваете у
+            пользователя «Ваше число > N, < N или == N?». В зависимости от того,
+            что указал пользователь, уменьшаете диапазон. Начальный диапазон от
+            0 до 100, поделили пополам и получили 50. Если пользователь указал,
+            что его число > 50, то изменили диапазон на от 51 до 100. И так до
+            тех пор, пока пользователь не выберет == N.
           </p>
         </label>
-        <input type="date" name="calendar" id="task10-calendar" />
       </fieldset>
       <button type="submit" onclick="processForm(this.form)">
         Go Ahead >>

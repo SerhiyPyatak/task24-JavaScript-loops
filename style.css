@@ -32,8 +32,6 @@
 }
 
 
-
-
 #next-date:checked ~ #task10-calendar {
 	display:			inline-block;
 }
@@ -47,42 +45,4 @@ button {
 	cursor:				pointer;
 	height: 			40px;
 	width: 				140px;
-}
-
-#task10 label {
-	width: 80%;
-}
-
-#task10-calendar {
-	display: 			none;
-	margin: 			0 10px;
-	padding: 0;
-}
-
-#currency-exchange {
-	display: 			none;
-	margin: 			10px;
-}
-
-#currency-converter:checked ~ #currency-exchange {
-	display: 			inline-block;
-}
-
-.quiz {
-	display: 			none;
-	width: 				100%;
-}
-
-.quiz-card {
-	width: 				30%;
-}
-
-#user-quiz:checked ~ .quiz {
-	display: 			flex;
-	justify-content: 	center;
-}
-
-#task9 {
-	display: 			flex;
-	flex-wrap: 	wrap;
 }
