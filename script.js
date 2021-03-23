@@ -85,15 +85,24 @@ function multiPlicator(oText) {
 	}
 }
 
-function getNextDay(presentDay) {
-	let oDate = new Date(presentDay);
-	oDate.setDate(oDate.getDate() + 1);
-	oDate = oDate.toLocaleDateString('en-GB', {  
-		day:   'numeric',
-		month: 'short',
-		year:  'numeric',
-	});
-	alert(`The next day will be: ${oDate}`);
+function guessNumber() {
+	alert('Mind a number from 0 to 100, please!');
+	isContinue = true;
+	rangeFloor = 0;
+	rangeSilly = 100;
+	do {
+		let guess = rangeFloor + Math.round((rangeSilly - rangeFloor)/2);
+		if (confirm(`Is you guessed ${guess}?`)) {
+			isContinue = false;
+		} else {
+			if (confirm(`Is you guessed number greater than ${guess}?`)) {
+				rangeFloor = guess + 1;
+			} else {
+				rangeSilly = guess - 1;
+			}
+		};
+	} while (isContinue);
+	alert('TA - DA !!!!');
 }
 
 function processForm(oForm) {
@@ -168,8 +177,8 @@ function processForm(oForm) {
 			let text = document.getElementById('mul-table');
 			multiPlicator(text);
 			break;
-		case "checkNextDate":
-			getNextDay(oForm.elements.calendar.value);
+		case "guessTheNumber":
+			guessNumber();
 			break;
 	}
 }
